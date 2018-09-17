@@ -1,4 +1,4 @@
-package nti.newhorizons.newhorizons;
+package nti.newhorizons.newhorizons.view.activity.main;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -6,6 +6,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import nti.newhorizons.newhorizons.R;
 
 public class MainActivity extends AppCompatActivity {
 
