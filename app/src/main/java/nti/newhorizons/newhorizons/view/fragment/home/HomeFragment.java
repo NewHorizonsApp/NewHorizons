@@ -14,6 +14,7 @@ import nti.newhorizons.newhorizons.R;
 
 public class HomeFragment extends Fragment {
     ImageView imageViewLogo;
+    RecyclerView recyclerViewCategory;
     RecyclerView recyclerViewMostPopular;
     RecyclerView recyclerViewSuggested;
     HomePresenter presenter;
@@ -36,10 +37,12 @@ public class HomeFragment extends Fragment {
         presenter = new HomePresenter(this);
         presenter.setMostPopularAdapter();
         presenter.setSuggestedAdapter();
+        presenter.setCategoryAdapter();
     }
 
     private void init(View rootView) {
         imageViewLogo = rootView.findViewById(R.id.imageView_logo);
+        recyclerViewCategory= rootView.findViewById(R.id.rv_category);
         recyclerViewMostPopular = rootView.findViewById(R.id.rv_mostPopular);
         recyclerViewSuggested = rootView.findViewById(R.id.rv_suggested);
     }
