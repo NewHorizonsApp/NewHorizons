@@ -5,22 +5,24 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import nti.newhorizons.newhorizons.R;
+import nti.newhorizons.newhorizons.data.entities.Course;
 
 public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<Course> courses;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    public MostPopularAdapter(Context context, List<String> data) {
+    public MostPopularAdapter(Context context, List<Course> data) {
         this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
+        this.courses = data;
     }
 
     // inflates the row layout from xml when needed
@@ -32,25 +34,34 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
 
     // binds the data to the TextView in each row
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+    public void onBindViewHolder(ViewHolder holder, int i) {
+        holder.tvCourseName.setText(courses.get(i).getName());
+        String cost = String.valueOf(courses.get(i).getCost());
+        holder.tvCourseCost.setText(cost);
+        holder.ivCourseImage.setImageResource(courses.get(i).getImage());
+        holder.tvCourseCategory.setText(courses.get(i).getCategory());
     }
 
     // total number of rows
     @Override
     public int getItemCount() {
-        return mData.size();
+        return courses.size();
     }
 
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
+        TextView tvCourseName;
+        TextView tvCourseCost;
+        TextView tvCourseCategory;
+        ImageView ivCourseImage;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.tvAnimalName);
+            tvCourseName = itemView.findViewById(R.id.tv_course_name);
+            tvCourseCost = itemView.findViewById(R.id.tv_course_cost);
+            tvCourseCategory = itemView.findViewById(R.id.tv_course_category);
+            ivCourseImage = itemView.findViewById(R.id.iv_course_image);
             itemView.setOnClickListener(this);
         }
 
@@ -61,8 +72,8 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
     }
 
     // convenience method for getting data at click position
-    String getItem(int id) {
-        return mData.get(id);
+    Course getItem(int i) {
+        return courses.get(i);
     }
 
     // allows clicks events to be caught
