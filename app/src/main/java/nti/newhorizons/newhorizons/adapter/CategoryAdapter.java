@@ -1,79 +1,56 @@
 package nti.newhorizons.newhorizons.adapter;
 
+
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import java.util.List;
 
 import nti.newhorizons.newhorizons.R;
-import nti.newhorizons.newhorizons.data.entities.Category;
-import nti.newhorizons.newhorizons.data.entities.Course;
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
+public class CategoryAdapter extends BaseAdapter {
+    private Context mContext;
 
-    private List<Category> category;
-    private LayoutInflater mInflater;
-    private MostPopularAdapter.ItemClickListener mClickListener;
-    public CategoryAdapter(Context context, List<Category> data) {
-        this.mInflater = LayoutInflater.from(context);
-        this.category = data;
-    }
+    // Keep all Images in array
+    public Integer[] mThumbIds = {
+            R.drawable.microsoft, R.drawable.microsoft,
+            R.drawable.microsoft, R.drawable.microsoft,
+            R.drawable.microsoft, R.drawable.microsoft,
+            R.drawable.microsoft, R.drawable.microsoft,
+            R.drawable.microsoft, R.drawable.microsoft,
+            R.drawable.microsoft, R.drawable.microsoft,
+            R.drawable.microsoft, R.drawable.microsoft,
+            R.drawable.microsoft,R.drawable.microsoft
+    };
 
-    @NonNull
-    @Override
-    public CategoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.category_item, parent, false);
-        return new CategoryAdapter.ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
-
-        holder.categoryImage.setImageResource(category.get(i).getImage());
+    // Constructor
+    public CategoryAdapter(Context c){
+        mContext = c;
     }
 
     @Override
-    public int getItemCount() {
-        return category.size();
+    public int getCount() {
+        return mThumbIds.length;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
-        ImageView categoryImage;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            categoryImage = itemView.findViewById(R.id.iv_category_image);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
-        }
-
-
+    @Override
+    public Object getItem(int position) {
+        return mThumbIds[position];
     }
 
-    // convenience method for getting data at click position
-    Category getItem(int i) {
-        return category.get(i);
+    @Override
+    public long getItemId(int position) {
+        return 0;
     }
 
-    // allows clicks events to be caught
-    void setClickListener(MostPopularAdapter.ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
-    }
-
-    // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ImageView imageView = new ImageView(mContext);
+        imageView.setImageResource(mThumbIds[position]);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        imageView.setLayoutParams(new GridView.LayoutParams(70, 70));
+        return imageView;
     }
 }
-

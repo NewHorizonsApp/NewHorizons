@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import nti.newhorizons.newhorizons.R;
+import nti.newhorizons.newhorizons.view.fragment.courses.CoursesFragment;
 import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,9 +25,16 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mainFragment = new HomeFragment();
+                    fragmentManager = getSupportFragmentManager();
+                    fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.frameLayout_main_container, new HomeFragment());
+                    fragmentTransaction.commit();
                     return true;
                 case R.id.navigation_courses:
+                    fragmentManager = getSupportFragmentManager();
+                    fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.frameLayout_main_container, new CoursesFragment());
+                    fragmentTransaction.commit();
                     return true;
                 case R.id.navigation_profile:
                     return true;

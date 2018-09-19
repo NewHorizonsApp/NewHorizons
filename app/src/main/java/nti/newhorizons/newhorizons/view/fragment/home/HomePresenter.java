@@ -4,15 +4,13 @@ import android.support.v7.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
-import nti.newhorizons.newhorizons.adapter.CategoryAdapter;
+import nti.newhorizons.newhorizons.adapter.HomeCategoryAdapter;
 import nti.newhorizons.newhorizons.adapter.MostPopularAdapter;
-import nti.newhorizons.newhorizons.adapter.VendorsAdapter;
 import nti.newhorizons.newhorizons.data.entities.Course;
-import nti.newhorizons.newhorizons.data.entities.Vendor;
 import nti.newhorizons.newhorizons.data.entities.Category;
 public class HomePresenter {
     private MostPopularAdapter adapter;
-    private CategoryAdapter categoryAdapter;
+    private HomeCategoryAdapter categoryAdapter;
     private ArrayList<Course> mostPopularCourses;
     private ArrayList<Course> suggestedCourses;
 
@@ -30,7 +28,7 @@ public class HomePresenter {
 
     public void setCategoryAdapter() {
         fillCategoryList();
-        categoryAdapter = new CategoryAdapter(view.getActivity(), CategoryCourses);
+        categoryAdapter = new HomeCategoryAdapter(view.getActivity(), CategoryCourses);
         view.recyclerViewCategory.setLayoutManager(new LinearLayoutManager(view.getActivity(), LinearLayoutManager.HORIZONTAL, true));
         view.recyclerViewCategory.setAdapter(categoryAdapter);
     }

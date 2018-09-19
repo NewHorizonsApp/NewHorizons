@@ -28,7 +28,7 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.course_item, parent, false);
+        View view = mInflater.inflate(R.layout.home_course_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -58,10 +58,10 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
 
         ViewHolder(View itemView) {
             super(itemView);
-            tvCourseName = itemView.findViewById(R.id.tv_course_name);
-            tvCourseCost = itemView.findViewById(R.id.tv_course_cost);
-            tvCourseCategory = itemView.findViewById(R.id.tv_course_category);
-            ivCourseImage = itemView.findViewById(R.id.iv_course_image);
+            tvCourseName = itemView.findViewById(R.id.tv_home_course_name);
+            tvCourseCost = itemView.findViewById(R.id.tv_home_course_cost);
+            tvCourseCategory = itemView.findViewById(R.id.tv_home_course_category);
+            ivCourseImage = itemView.findViewById(R.id.iv_home_course_image);
             itemView.setOnClickListener(this);
         }
 
