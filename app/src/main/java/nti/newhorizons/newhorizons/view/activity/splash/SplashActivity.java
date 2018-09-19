@@ -11,12 +11,10 @@ import android.widget.ProgressBar;
 import nti.newhorizons.newhorizons.R;
 import nti.newhorizons.newhorizons.view.activity.main.MainActivity;
 
-public class SplashActivity  extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
+    SplashPresenter presenter;
 
-    private Handler handler = new Handler();
-
-    private int status = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,30 +25,8 @@ public class SplashActivity  extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (status < 100) {
-                    status += 1;
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                        }
-                    });
-                }
-
-
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-
-            }
-        }).start();
+        presenter = new SplashPresenter(this);
+        presenter.delayScreen();
 
 
     }
