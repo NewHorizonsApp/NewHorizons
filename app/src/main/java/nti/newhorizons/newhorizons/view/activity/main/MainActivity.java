@@ -14,52 +14,58 @@ import nti.newhorizons.newhorizons.view.fragment.courses.CoursesFragment;
 import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
-    Fragment mainFragment;
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    fragmentManager = getSupportFragmentManager();
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.frameLayout_main_container, new HomeFragment());
-                    fragmentTransaction.commit();
-                    return true;
-                case R.id.navigation_courses:
-                    fragmentManager = getSupportFragmentManager();
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.frameLayout_main_container, new CoursesFragment());
-                    fragmentTransaction.commit();
-                    return true;
-                case R.id.navigation_profile:
-                    return true;
-                case R.id.navigation_notifications:
-                    return true;
-            }
-            return false;
-        }
-    };
+    MainPresenter presenter;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        mainFragment = new HomeFragment();
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frameLayout_main_container, mainFragment);
-        fragmentTransaction.commit();
-
+        init();
+        presentData();
+        actions();
 
     }
 
+    private void actions() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        replaceFragment(new HomeFragment());
+                        return true;
+                    case R.id.navigation_courses:
+                        replaceFragment(new CoursesFragment());
+                        return true;
+                    case R.id.navigation_profile:
+                        return true;
+                    case R.id.navigation_notifications:
+                        return true;
+                }
+                return false;
+            }
+        });
+    }
+
+    private void presentData() {
+    }
+
+    private void init() {
+        bottomNavigationView = findViewById(R.id.navigation);
+    }
+
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout_main_container, fragment);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        replaceFragment(new HomeFragment());
+    }
 }
