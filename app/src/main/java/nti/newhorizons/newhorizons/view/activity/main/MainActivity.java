@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import nti.newhorizons.newhorizons.R;
+import nti.newhorizons.newhorizons.view.fragment.ProfileCourse.ProfileCourseFragment;
 import nti.newhorizons.newhorizons.view.fragment.courses.CoursesFragment;
 import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
 import nti.newhorizons.newhorizons.view.fragment.profile.ProfileFragment;
@@ -47,8 +48,9 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.navigation_profile:
                         replaceFragment(new ProfileFragment());
-
+                        return true;
                     case R.id.navigation_notifications:
+                        replaceFragment(new ProfileCourseFragment());
                         return true;
                 }
                 return false;
