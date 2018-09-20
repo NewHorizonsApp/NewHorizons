@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.navigation_profile:
                         replaceFragment(new ProfileFragment());
-                        return true;
+
                     case R.id.navigation_notifications:
                         return true;
                 }
@@ -57,12 +57,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @SuppressLint("RestrictedApi")
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    @Override
-    public void startActivityForResult(Intent intent, int requestCode, @Nullable Bundle options) {
-        super.startActivityForResult(intent, requestCode, options);
-    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -74,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         bottomNavigationView = findViewById(R.id.navigation);
+        replaceFragment(new HomeFragment());
+
     }
 
     public void replaceFragment(Fragment fragment) {
@@ -86,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        replaceFragment(new HomeFragment());
+//        replaceFragment(new HomeFragment());
     }
+
+
 }
