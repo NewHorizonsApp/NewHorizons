@@ -2,6 +2,9 @@ package nti.newhorizons.newhorizons.view.fragment.profile;
 
 import android.content.Context;
 import android.content.Intent;
+import android.provider.MediaStore;
+
+import java.net.URL;
 
 public class ProfilePresenter {
     Context context;

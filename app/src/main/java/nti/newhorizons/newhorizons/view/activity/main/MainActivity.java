@@ -1,7 +1,12 @@
 package nti.newhorizons.newhorizons.view.activity.main;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +17,7 @@ import android.view.MenuItem;
 import nti.newhorizons.newhorizons.R;
 import nti.newhorizons.newhorizons.view.fragment.courses.CoursesFragment;
 import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
+import nti.newhorizons.newhorizons.view.fragment.profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
     MainPresenter presenter;
@@ -40,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                         replaceFragment(new CoursesFragment());
                         return true;
                     case R.id.navigation_profile:
+                        replaceFragment(new ProfileFragment());
                         return true;
                     case R.id.navigation_notifications:
                         return true;
@@ -47,6 +54,19 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+
+    @SuppressLint("RestrictedApi")
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode, @Nullable Bundle options) {
+        super.startActivityForResult(intent, requestCode, options);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 
     private void presentData() {

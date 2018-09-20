@@ -2,6 +2,7 @@ package nti.newhorizons.newhorizons.view.fragment.profile;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -20,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.net.URI;
 
 import nti.newhorizons.newhorizons.R;
 
@@ -82,7 +84,7 @@ public class ProfileFragment extends Fragment {
 
             }
         });
- 
+
         addIMG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
