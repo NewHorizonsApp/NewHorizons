@@ -38,12 +38,12 @@ public class CourseListAdapter  extends ArrayAdapter<Course> {
 
         LayoutInflater inflater= (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view=inflater.inflate(R.layout.course_list_item,parent,false);
-        tvCourseName=(TextView) view.findViewById(R.id.tv_home_course_name);
-        tvCoursCost=(TextView)view.findViewById(R.id.tv_home_course_cost);
+        tvCourseName=(TextView) view.findViewById(R.id.tv_course_list_name);
+        tvCoursCost=(TextView)view.findViewById(R.id.tv_list_course_cost);
         ivCourseImg=(ImageView)view.findViewById(R.id.iv_course_list_icon) ;
         ivAddToList =(ImageView)view.findViewById(R.id.iv_add_toList) ;
 
-        tvCourseName.setText(courses.get(position).getName().toString());
+        tvCourseName.setText(courses.get(position).getName());
         tvCoursCost.setText(courses.get(position).getCost()+"");
         ivAddToList.setOnClickListener(new View.OnClickListener() {
             @Override

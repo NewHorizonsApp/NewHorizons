@@ -1,9 +1,11 @@
 package nti.newhorizons.newhorizons.view.fragment.courseList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import nti.newhorizons.newhorizons.R;
+import nti.newhorizons.newhorizons.view.activity.courseDetails.CourseDetailsActivity;
+import nti.newhorizons.newhorizons.view.fragment.ProfileCourse.ProfileCourseFragment;
 
 public class CourseListFragment extends Fragment{
     ListView lvCourses;
@@ -26,7 +30,7 @@ public class CourseListFragment extends Fragment{
         init(rootView);
         presentData();
         actions();
-        
+
         return rootView;
     }
 
@@ -34,8 +38,8 @@ public class CourseListFragment extends Fragment{
         lvCourses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView tvCourseToastName=view.findViewById(R.id.tv_course_list_name);
-                Toast.makeText(getActivity().getApplicationContext(),"you choosed "+tvCourseToastName.getText().toString(),Toast.LENGTH_LONG).show();
+             //   Intent intent=new Intent(getActivity(), CourseDetailsActivity.class);
+             //   startActivity(intent);
             }
         });
     }
@@ -49,5 +53,13 @@ public class CourseListFragment extends Fragment{
     private void init(View rootView) {
         lvCourses = (ListView) rootView.findViewById(R.id.lvCourse);
 
+    }
+
+    private void swapFragment(){
+
+        FragmentTransaction fragmentTransaction =getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.lfragment, new ProfileCourseFragment());
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

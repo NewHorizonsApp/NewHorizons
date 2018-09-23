@@ -4,12 +4,17 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import nti.newhorizons.newhorizons.R;
+import nti.newhorizons.newhorizons.view.fragment.courseList.CourseListFragment;
+import nti.newhorizons.newhorizons.view.fragment.courses.CatogrysSelection;
+import nti.newhorizons.newhorizons.view.fragment.vendors.VendorsFragment;
 
 public class CategoryFragment extends Fragment {
     CategoryPresenter presenter;
@@ -27,6 +32,13 @@ public class CategoryFragment extends Fragment {
     }
 
     private void actions() {
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                swapFragment();
+            }
+        });
     }
 
     private void presentData() {
@@ -37,5 +49,12 @@ public class CategoryFragment extends Fragment {
     private void init(View rootView) {
         gridView = (GridView) rootView.findViewById (R.id.grid_view_categories);
 
+    }
+    private void swapFragment(){
+
+        FragmentTransaction fragmentTransaction =getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.lyfragment2, new CourseListFragment());
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

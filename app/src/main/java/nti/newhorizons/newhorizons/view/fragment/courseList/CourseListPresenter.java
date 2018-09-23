@@ -20,7 +20,19 @@ public class CourseListPresenter {
         course.setImage(R.drawable.course_dummy);
         course.setName("java");
         course.setCost(557);
+        courses.add(course);
 
+        Course course1=new Course();
+        course1.setImage(R.drawable.logo);
+        course1.setName("c++");
+        course1.setCost(1000);
+        courses.add(course1);
+
+        Course course2=new Course();
+        course2.setImage(R.drawable.logo);
+        course2.setName("python");
+        course2.setCost(2200);
+        courses.add(course2);
     }
 
     public void setCourseListAdapter()
