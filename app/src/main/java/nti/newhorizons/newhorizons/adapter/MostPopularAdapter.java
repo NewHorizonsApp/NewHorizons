@@ -68,7 +68,7 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
             ivCourseImage = itemView.findViewById(R.id.iv_home_course_image);
             context =itemView.getContext();
             itemView.setOnClickListener(this);
-        }
+        }  
 
         @Override
         public void onClick(View view) {
