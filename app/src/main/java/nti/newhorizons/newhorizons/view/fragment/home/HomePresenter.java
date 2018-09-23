@@ -1,72 +1,73 @@
 package nti.newhorizons.newhorizons.view.fragment.home;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.support.v7.widget.LinearLayoutManager;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import nti.newhorizons.newhorizons.adapter.HomeCategoryAdapter;
 import nti.newhorizons.newhorizons.adapter.MostPopularAdapter;
 import nti.newhorizons.newhorizons.data.entities.Course;
 import nti.newhorizons.newhorizons.data.entities.Category;
-public class HomePresenter {
-    private MostPopularAdapter adapter;
-    private HomeCategoryAdapter categoryAdapter;
-    private ArrayList<Course> mostPopularCourses;
-    private ArrayList<Course> suggestedCourses;
 
-    private ArrayList<Category> CategoryCourses;
+public class HomePresenter {
     private HomeFragment view;
+    private HomeFragmentViewModel mViewModel;
+
 
     HomePresenter(HomeFragment view) {
         this.view = view;
-        this.mostPopularCourses = new ArrayList<>();
-        this.suggestedCourses = new ArrayList<>();
-        this.CategoryCourses = new ArrayList<>();
+        mViewModel = ViewModelProviders.of(view).get(HomeFragmentViewModel.class);
+
+        // subscribe and update data automatically.
+        subscribeMostPopularCourses();
+        subscribeSuggestedCourses();
+        subscribeCategories();
     }
 
+    private void setMostPopularAdapter(List<Course> courses) {
+        MostPopularAdapter mostPopularAdapter = new MostPopularAdapter(view.getActivity(), courses);
+        view.recyclerViewMostPopular.setLayoutManager(new LinearLayoutManager(view.getActivity(), LinearLayoutManager.HORIZONTAL, true));
+        view.recyclerViewMostPopular.setAdapter(mostPopularAdapter);
+    }
 
+    private void setSuggestedCoursesAdapter(List<Course> courses) {
+        MostPopularAdapter mostPopularAdapter = new MostPopularAdapter(view.getActivity(), courses);
+        view.recyclerViewSuggested.setLayoutManager(new LinearLayoutManager(view.getActivity(), LinearLayoutManager.HORIZONTAL, true));
+        view.recyclerViewSuggested.setAdapter(mostPopularAdapter);
+    }
 
-    public void setCategoryAdapter() {
-        fillCategoryList();
-        categoryAdapter = new HomeCategoryAdapter(view.getActivity(), CategoryCourses);
+    private void setCatogoryAdapter(List<Category> categories) {
+        HomeCategoryAdapter categoryAdapter = new HomeCategoryAdapter(view.getActivity(), categories);
         view.recyclerViewCategory.setLayoutManager(new LinearLayoutManager(view.getActivity(), LinearLayoutManager.HORIZONTAL, true));
         view.recyclerViewCategory.setAdapter(categoryAdapter);
     }
 
-
-    public void setMostPopularAdapter() {
-        fillMostPopularList();
-        adapter = new MostPopularAdapter(view.getActivity(), mostPopularCourses);
-        view.recyclerViewMostPopular.setLayoutManager(new LinearLayoutManager(view.getActivity(), LinearLayoutManager.HORIZONTAL, true));
-        view.recyclerViewMostPopular.setAdapter(adapter);
+    private void subscribeMostPopularCourses() {
+        mViewModel.mostPopularCourses.observe(view, new Observer<List<Course>>() {
+            @Override
+            public void onChanged(final List<Course> courses) {
+                setMostPopularAdapter(courses);
+            }
+        });
     }
 
-    public void setSuggestedAdapter() {
-        fillSuggestedList();
-        adapter = new MostPopularAdapter(view.getActivity(), suggestedCourses);
-        view.recyclerViewSuggested.setLayoutManager(new LinearLayoutManager(view.getActivity(), LinearLayoutManager.HORIZONTAL, true));
-        view.recyclerViewSuggested.setAdapter(adapter);
+    private void subscribeSuggestedCourses() {
+        mViewModel.suggestedCourses.observe(view, new Observer<List<Course>>() {
+            @Override
+            public void onChanged(final List<Course> courses) {
+                setSuggestedCoursesAdapter(courses);
+            }
+        });
     }
 
-    private void fillMostPopularList() {
-        mostPopularCourses.add(new Course());
-        mostPopularCourses.add(new Course());
-        mostPopularCourses.add(new Course());
-
-    }
-
-    private void fillSuggestedList() {
-        suggestedCourses.add(new Course());
-        suggestedCourses.add(new Course());
-        suggestedCourses.add(new Course());
-
-    }
-
-
-    public void fillCategoryList() {
-        CategoryCourses.add(new Category());
-        CategoryCourses.add(new Category());
-        CategoryCourses.add(new Category());
-
+    private void subscribeCategories() {
+        mViewModel.catogries.observe(view, new Observer<List<Category>>() {
+            @Override
+            public void onChanged(final List<Category> categories) {
+                setCatogoryAdapter(categories);
+            }
+        });
     }
 }

@@ -1,11 +1,17 @@
 package nti.newhorizons.newhorizons.data.entities;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 import nti.newhorizons.newhorizons.R;
 
+@Entity
 public class Category {
-
-    private int image;
+    @PrimaryKey
+    @NonNull
     private String name;
+    private int image;
 
 
     public int getImage() {
@@ -16,11 +22,12 @@ public class Category {
         this.image = image;
     }
 
+    @NonNull
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(@NonNull String name) {
         this.name = name;
     }
 

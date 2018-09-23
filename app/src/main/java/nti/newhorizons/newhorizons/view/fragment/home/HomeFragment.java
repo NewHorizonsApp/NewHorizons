@@ -1,5 +1,7 @@
 package nti.newhorizons.newhorizons.view.fragment.home;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,7 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import java.util.List;
+
 import nti.newhorizons.newhorizons.R;
+import nti.newhorizons.newhorizons.data.entities.Course;
 
 public class HomeFragment extends Fragment {
     ImageView imageViewLogo;
@@ -19,32 +24,24 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerViewSuggested;
     HomePresenter presenter;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         init(rootView);
-        presentData();
         actions();
 
         return rootView;
 
     }
 
-    private void presentData() {
-        presenter = new HomePresenter(this);
-        presenter.setMostPopularAdapter();
-        presenter.setSuggestedAdapter();
-        presenter.setCategoryAdapter();
-    }
-
     private void init(View rootView) {
         imageViewLogo = rootView.findViewById(R.id.imageView_logo);
-        recyclerViewCategory= rootView.findViewById(R.id.rv_category);
+        recyclerViewCategory = rootView.findViewById(R.id.rv_category);
         recyclerViewMostPopular = rootView.findViewById(R.id.rv_mostPopular);
         recyclerViewSuggested = rootView.findViewById(R.id.rv_suggested);
+        presenter = new HomePresenter(this);
     }
 
     private void actions() {

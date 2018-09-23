@@ -1,8 +1,13 @@
 package nti.newhorizons.newhorizons.data.entities;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 import nti.newhorizons.newhorizons.R;
 
+@Entity
 public class Course {
+    @PrimaryKey
     private int Id;
     private String Name;
     private String Code;
@@ -12,26 +17,42 @@ public class Course {
     private int Hours;
     private int Cost;
     private float Disc;
-    private int image;
+    private int Image;
 
     public Course() {
-        Name="none";
-        Code="none";
-        Category="none";
-        Description="none";
-        Outline="none";
-        Hours=0;
-        Cost=0;
-        Disc=0;
-        image=R.drawable.logo_app;
+        Id=0;
+        Name = "none";
+        Code = "none";
+        Category = "none";
+        Description = "none";
+        Outline = "none";
+        Hours = 0;
+        Cost = 0;
+        Disc = 0;
+        Image = R.drawable.logo_app;
     }
+
+    public Course(int id, String name, String code, String category, String description, String outline, int hours, int cost, int disc, int image) {
+        Id = id;
+        Name = name;
+        Code = code;
+        Category = category;
+        Description = description;
+        Outline = outline;
+        Hours = hours;
+        Cost = cost;
+        Disc = disc;
+        Image = image;
+    }
+
     public int getImage() {
-        return image;
+        return Image;
     }
 
     public void setImage(int image) {
-        this.image = image;
+        this.Image = image;
     }
+
     public int getId() {
         return Id;
     }
