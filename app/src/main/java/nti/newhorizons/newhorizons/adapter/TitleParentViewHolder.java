@@ -1,4 +1,4 @@
-package nti.newhorizons.newhorizons.view.fragment.ProfileCourse.ProfileCourseList;
+package nti.newhorizons.newhorizons.adapter;
 
 import android.view.View;
 import android.widget.ImageButton;

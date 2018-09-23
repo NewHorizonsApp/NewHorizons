@@ -53,7 +53,6 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="41dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:background="@color/gray">
@@ -145,7 +144,8 @@
     <FrameLayout
         android:id="@+id/frameLayout_course_list_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="2dp">
 
     </FrameLayout>
 

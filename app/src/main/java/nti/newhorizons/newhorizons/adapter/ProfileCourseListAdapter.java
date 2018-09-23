@@ -13,8 +13,6 @@ import java.util.List;
 
 import nti.newhorizons.newhorizons.data.entities.CourseTitleChild;
 import nti.newhorizons.newhorizons.data.entities.CourseTitleParent;
-import nti.newhorizons.newhorizons.view.fragment.ProfileCourse.ProfileCourseList.TitleChildViewHolder;
-import nti.newhorizons.newhorizons.view.fragment.ProfileCourse.ProfileCourseList.TitleParentViewHolder;
 import nti.newhorizons.newhorizons.R;
 
 /**

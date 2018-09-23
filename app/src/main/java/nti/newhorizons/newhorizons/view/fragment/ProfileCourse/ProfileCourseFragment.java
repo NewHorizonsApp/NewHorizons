@@ -28,11 +28,10 @@ public class ProfileCourseFragment extends android.support.v4.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_course_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_profile_course, container, false);
 
         recyclerView = (RecyclerView)rootView.findViewById(R.id.course_profile);
-  //      recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         ProfileCourseListAdapter adapter = new ProfileCourseListAdapter(this.getContext(),initData());
         adapter.setParentClickableViewAnimationDefaultDuration();
