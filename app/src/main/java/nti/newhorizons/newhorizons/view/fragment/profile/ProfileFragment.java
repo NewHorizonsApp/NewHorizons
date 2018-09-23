@@ -27,6 +27,7 @@ import java.net.URI;
 
 import nti.newhorizons.newhorizons.R;
 import nti.newhorizons.newhorizons.view.fragment.ProfileCourse.ProfileCourseFragment;
+import nti.newhorizons.newhorizons.view.fragment.ProfilePersonal.ProfilePersonal;
 import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
 
 
@@ -67,19 +68,19 @@ public class ProfileFragment extends Fragment {
         currentT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                fragment();
             }
         });
         finishT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                fragment();
             }
         });
         interstedT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                fragment();
             }
         });
         personalT.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +88,7 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.frameLayout_course_list_container, new HomeFragment());
+                fragmentTransaction.replace(R.id.frameLayout_course_list_container, new ProfilePersonal());
                 fragmentTransaction.commit();
 
             }
@@ -96,15 +97,12 @@ public class ProfileFragment extends Fragment {
         addIMG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int permissionCheck = ContextCompat.checkSelfPermission(getActivity(),
-                        Manifest.permission.READ_EXTERNAL_STORAGE);
+                int permissionCheck = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE);
 
                 if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
                     startGallery();
                 } else {
-                    ActivityCompat.requestPermissions(getActivity(),
-                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                            2000);
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2000);
                 }
             }
         });
@@ -124,6 +122,14 @@ public class ProfileFragment extends Fragment {
         if (cameraIntent.resolveActivity(getActivity().getPackageManager()) != null) {
             startActivityForResult(cameraIntent, 1000);
         }
+    }
+
+    private void fragment() {
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout_course_list_container, new ProfileCourseFragment());
+        fragmentTransaction.commit();
     }
 
     @Override
