@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import nti.newhorizons.newhorizons.R;
-import nti.newhorizons.newhorizons.view.activity.courseDetails.CourseDetailsActivity;
 import nti.newhorizons.newhorizons.view.fragment.ProfileCourse.ProfileCourseFragment;
 
 public class CourseListFragment extends Fragment{

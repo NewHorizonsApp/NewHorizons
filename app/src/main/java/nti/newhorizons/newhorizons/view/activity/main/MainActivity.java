@@ -1,5 +1,6 @@
 package nti.newhorizons.newhorizons.view.activity.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import nti.newhorizons.newhorizons.R;
+import nti.newhorizons.newhorizons.view.activity.courseDetails.courseDetails;
 import nti.newhorizons.newhorizons.view.fragment.about.AboutFragment;
 import nti.newhorizons.newhorizons.view.fragment.courses.CoursesFragment;
 import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                         replaceFragment(new HomeFragment());
                         return true;
                     case R.id.navigation_courses:
-                        replaceFragment(new CoursesFragment());
+                        startActivity(new Intent(MainActivity.this, courseDetails.class));
                         return true;
                     case R.id.navigation_profile:
                         replaceFragment(new ProfileFragment());
@@ -52,7 +54,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+// private void actions() {
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                switch (item.getItemId()) {
+//                    case R.id.navigation_home:
+//                        replaceFragment(new HomeFragment());
+//                        return true;
+//                    case R.id.navigation_courses:
+//                        replaceFragment(new CoursesFragment());
+//                        return true;
+//                    case R.id.navigation_profile:
+//                        replaceFragment(new ProfileFragment());
+//                        return true;
+//                    case R.id.navigation_about:
+//                        replaceFragment(new AboutFragment());
+//                        return true;
+//                }
+//                return false;
+//            }
+//        });
+//    }
 
 
     @Override
