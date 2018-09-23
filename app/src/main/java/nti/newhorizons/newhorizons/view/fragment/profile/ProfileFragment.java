@@ -13,6 +13,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,8 @@ import java.io.IOException;
 import java.net.URI;
 
 import nti.newhorizons.newhorizons.R;
+import nti.newhorizons.newhorizons.view.fragment.ProfileCourse.ProfileCourseFragment;
+import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
 
 
 public class ProfileFragment extends Fragment {
@@ -81,6 +85,10 @@ public class ProfileFragment extends Fragment {
         personalT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout_course_list_container, new HomeFragment());
+                fragmentTransaction.commit();
 
             }
         });
