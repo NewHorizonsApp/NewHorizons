@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     private void actions() {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                         replaceFragment(new HomeFragment());
                         return true;
                     case R.id.navigation_courses:
-                        startActivity(new Intent(MainActivity.this, courseDetails.class));
+                        replaceFragment(new CoursesFragment());
                         return true;
                     case R.id.navigation_profile:
                         replaceFragment(new ProfileFragment());
@@ -54,28 +55,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-// private void actions() {
-//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                switch (item.getItemId()) {
-//                    case R.id.navigation_home:
-//                        replaceFragment(new HomeFragment());
-//                        return true;
-//                    case R.id.navigation_courses:
-//                        replaceFragment(new CoursesFragment());
-//                        return true;
-//                    case R.id.navigation_profile:
-//                        replaceFragment(new ProfileFragment());
-//                        return true;
-//                    case R.id.navigation_about:
-//                        replaceFragment(new AboutFragment());
-//                        return true;
-//                }
-//                return false;
-//            }
-//        });
-//    }
 
 
     @Override

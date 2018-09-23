@@ -368,7 +368,7 @@
                         android:layout_height="100dp"
                         android:adjustViewBounds="true"
                         android:scaleType="fitXY"
-                        android:src="@drawable/nh3" />
+                        android:src="@drawable/nh9" />
 
                     <com.borjabravo.readmoretextview.ReadMoreTextView
                         android:paddingTop="10dp"
@@ -428,7 +428,7 @@
                         android:layout_height="100dp"
                         android:adjustViewBounds="true"
                         android:scaleType="fitXY"
-                        android:src="@drawable/nh18" />
+                        android:src="@drawable/nh9" />
 
                     <com.borjabravo.readmoretextview.ReadMoreTextView
                         android:paddingTop="10dp"

@@ -1,6 +1,7 @@
 package nti.newhorizons.newhorizons.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import nti.newhorizons.newhorizons.R;
 import nti.newhorizons.newhorizons.data.entities.Course;
+import nti.newhorizons.newhorizons.view.activity.courseDetails.courseDetails;
 
 public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.ViewHolder> {
 
@@ -55,6 +57,8 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
         TextView tvCourseCost;
         TextView tvCourseCategory;
         ImageView ivCourseImage;
+        private  Context context;
+
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -62,12 +66,16 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
             tvCourseCost = itemView.findViewById(R.id.tv_home_course_cost);
             tvCourseCategory = itemView.findViewById(R.id.tv_home_course_category);
             ivCourseImage = itemView.findViewById(R.id.iv_home_course_image);
+            context =itemView.getContext();
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+            Intent  intent = new Intent(context,courseDetails.class);
+            context.startActivity(intent);
+
+           // if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
         }
     }
 
