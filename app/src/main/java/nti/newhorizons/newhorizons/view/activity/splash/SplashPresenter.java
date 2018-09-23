@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 
+import nti.newhorizons.newhorizons.view.activity.login.LoginActivity;
 import nti.newhorizons.newhorizons.view.activity.main.MainActivity;
 
 public class SplashPresenter {
@@ -38,7 +39,7 @@ public class SplashPresenter {
                 }
 
 
-                Intent intent = new Intent(view, MainActivity.class);
+                Intent intent = new Intent(view, LoginActivity.class);
                 view.startActivity(intent);
                 view.finish();
 
