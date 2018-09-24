@@ -5,7 +5,7 @@ public class Client {
     private int id;
     private String password;
     private String type;
-    private Person person;
+    private Person person=new Person();
 
     public Person getPerson() {
         return person;

@@ -1,12 +1,13 @@
 package nti.newhorizons.newhorizons.view.activity.login;
 
 import android.view.View;
-import android.widget.Toast;
 
 
 import nti.newhorizons.newhorizons.data.entities.Client;
+import nti.newhorizons.newhorizons.data.remote.retrofit.RetrofitClient;
 
 public class LoginPresenter {
+    RetrofitClient retrofitClient;
 
     View context;
 
@@ -16,23 +17,18 @@ public class LoginPresenter {
     }
 
     public LoginPresenter() {
+        retrofitClient=new RetrofitClient();
     }
 
 
-    public Client getUser(String email, String password) {
+    public Client checkUser(String email, String password) {
         Client user = new Client();
 
+        user.getPerson().setEmail(email);
+        user.setPassword(password);
 
-        if (email != null) {
-            user.getPerson().setEmail(email);
-        } else {
-            Toast.makeText(new LoginActivity(), "You should enter Email", Toast.LENGTH_SHORT).show();
-        }
-        if (password != null) {
-            user.setPassword(password);
-        } else {
-            Toast.makeText(new LoginActivity(), "You should enter pass", Toast.LENGTH_SHORT).show();
-        }
+        retrofitClient.checkUser(user);
+
         return user;
     }
 
