@@ -21,8 +21,8 @@ import nti.newhorizons.newhorizons.view.activity.signUp.SignUpActivity;
 
 public class LoginActivity extends AppCompatActivity {
     EditText emailT, passwordT;
-    Button login ;
-    TextView signup;
+    Button login;
+    TextView signup, skip;
     LoginPresenter loginPresenter;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
 
 
         setContentView(R.layout.activity_login);
@@ -44,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         emailT = findViewById(R.id.et_login_email);
         passwordT = findViewById(R.id.et_login_password);
         signup = findViewById(R.id.et_signup);
+        skip = findViewById(R.id.tv_skip);
         login = findViewById(R.id.btn_login);
 
         loginPresenter = new LoginPresenter();
@@ -57,6 +57,13 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+        skip.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+            }
+        });
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -64,12 +71,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String login_email = emailT.getText().toString().trim();
                 String login_password = passwordT.getText().toString().trim();
-                if (checkIsUserValid()){
+                if (checkIsUserValid()) {
                     Client user = loginPresenter.checkUser(login_email, login_password);
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
-                }
-                else
+                } else
                     Toast.makeText(LoginActivity.this, "login failed", Toast.LENGTH_SHORT).show();
 
 
@@ -93,27 +99,24 @@ public class LoginActivity extends AppCompatActivity {
         boolean cancel = false;
         View focusView = null;
 
-        if (TextUtils.isEmpty(password))
-        {
+        if (TextUtils.isEmpty(password)) {
             passwordT.setError(getString(R.string.error_invalid_password));
             focusView = passwordT;
             cancel = true;
         }
 
-        if (TextUtils.isEmpty(email))
-        {
+        if (TextUtils.isEmpty(email)) {
             emailT.setError(getString(R.string.error_field_required));
             focusView = emailT;
             cancel = true;
         }
 
-        if (cancel)
-        {
+        if (cancel) {
             focusView.requestFocus();
         } else {
             return true;
         }
-          return false;
+        return false;
     }
 
 
