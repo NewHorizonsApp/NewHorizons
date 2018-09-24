@@ -2,11 +2,14 @@ package nti.newhorizons.newhorizons.data.entities;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 
 import nti.newhorizons.newhorizons.R;
 
 @Entity
-public class Course {
+public class Course implements Serializable{
     @PrimaryKey
     private int Id;
     private String Name;
