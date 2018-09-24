@@ -27,7 +27,6 @@ public class LoginPresenter {
         user.getPerson().setEmail(email);
         user.setPassword(password);
 
-        retrofitClient.checkUser(user);
 
         return user;
     }

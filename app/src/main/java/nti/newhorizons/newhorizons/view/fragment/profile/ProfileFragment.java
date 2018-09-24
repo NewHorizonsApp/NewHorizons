@@ -64,7 +64,11 @@ public class ProfileFragment extends Fragment {
 
         profilePresenter = new ProfilePresenter();
 
-//        getphoto();
+        //open fragment in first time
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout_course_list_container, new ProfilePersonal());
+        fragmentTransaction.commit();
     }
 
     private void actions() {
@@ -109,8 +113,8 @@ public class ProfileFragment extends Fragment {
 
 
     private void presentData(View view) {
-        profilePresenter.setProfilePhoto(view);
-        profilePresenter.getImage();
+//        profilePresenter.setProfilePhoto(view);
+//        profilePresenter.getImage();
 
     }
 

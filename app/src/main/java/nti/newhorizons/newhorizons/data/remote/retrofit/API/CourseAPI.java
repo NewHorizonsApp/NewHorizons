@@ -9,9 +9,12 @@ import retrofit2.http.Query;
 
 public interface CourseAPI {
 
-    @GET("course")
+    @GET("/course")
     Call<List<Course>> getallCourses();
 
-    @GET("course")
+    @GET("/course")
     Call<List<Course>> getCoursesByCategory(@Query("categoryName") String categoryName);
+
+    @GET("/course")
+    Call<List<Course>> getCoursesById(@Query("id") String categoryid);
 }
