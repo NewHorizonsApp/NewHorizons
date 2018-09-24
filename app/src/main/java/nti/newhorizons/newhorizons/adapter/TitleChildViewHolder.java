@@ -10,7 +10,7 @@ import nti.newhorizons.newhorizons.R;
 
 
 /**
- * Created by reale on 23/11/2016.
+ * Created by hady on 23/11/2016.
  */
 
 public class TitleChildViewHolder extends ChildViewHolder {
