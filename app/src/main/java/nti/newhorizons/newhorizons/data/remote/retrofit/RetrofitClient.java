@@ -1,5 +1,6 @@
 package nti.newhorizons.newhorizons.data.remote.retrofit;
 
+import nti.newhorizons.newhorizons.data.entities.Client;
 import nti.newhorizons.newhorizons.data.entities.Course;
 import nti.newhorizons.newhorizons.data.remote.retrofit.API.CourseAPI;
 import retrofit2.Retrofit;
@@ -19,6 +20,10 @@ public class RetrofitClient {
                     .build();
         }
         return retrofit;
+    }
+
+    public  boolean checkUser(Client user){
+        return true;
     }
 
 }

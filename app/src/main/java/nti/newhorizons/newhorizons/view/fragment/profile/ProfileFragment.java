@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -43,7 +44,7 @@ public class ProfileFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
         init(rootView);
-        presentData();
+        presentData(rootView);
         actions();
 
         return rootView;
@@ -62,16 +63,12 @@ public class ProfileFragment extends Fragment {
         addIMG = view.findViewById(R.id.profile_addIMG);
 
         profilePresenter = new ProfilePresenter();
+
+//        getphoto();
     }
 
     private void actions() {
         currentT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragment();
-            }
-        });
-        finishT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 fragment();
@@ -111,7 +108,9 @@ public class ProfileFragment extends Fragment {
     }
 
 
-    private void presentData() {
+    private void presentData(View view) {
+        profilePresenter.setProfilePhoto(view);
+        profilePresenter.getImage();
 
     }
 
