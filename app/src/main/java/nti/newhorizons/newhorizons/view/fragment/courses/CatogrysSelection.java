@@ -76,7 +76,7 @@ public class CatogrysSelection extends Fragment {
     private void swapFragment(){
 
         FragmentTransaction fragmentTransaction =this.getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.lyfragment2, new CategoryFragment());
+        fragmentTransaction.replace(R.id.lfragment, new CategoryFragment());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }

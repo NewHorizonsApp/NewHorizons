@@ -53,7 +53,7 @@ public class CategoryFragment extends Fragment {
     private void swapFragment(){
 
         FragmentTransaction fragmentTransaction =getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.lyfragment2, new CourseListFragment());
+        fragmentTransaction.replace(R.id.lfragment, new CourseListFragment());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }

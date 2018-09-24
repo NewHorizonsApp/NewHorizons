@@ -73,6 +73,7 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
         @Override
         public void onClick(View view) {
             Intent  intent = new Intent(context,courseDetails.class);
+            intent.putExtra("Course",new Course());
             context.startActivity(intent);
 
            // if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());

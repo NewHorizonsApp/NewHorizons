@@ -30,35 +30,13 @@ public class CoursesFragment extends Fragment{
         View rootView1 = inflater.inflate(R.layout.fragment_vendors_selection, container, false);
         coursesPresenter=new CoursesPresenter();
 
-        init(rootView);
+        //  init(rootView);
         presentData();
         /*   actions();
          */
         return rootView;
     }
-    /*
-        private void actions() {
-            imageView1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    swapFragment(1);
-                    Toast.makeText(getActivity().getBaseContext(),"1111",Toast.LENGTH_LONG).show();
 
-                }
-            });
-
-            imageView2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    swapFragment(2);
-                    Toast.makeText(getActivity().getBaseContext(),"2222",Toast.LENGTH_LONG).show();
-
-
-                }
-            });
-
-        }
-    */
     private void presentData() {
 
     }
