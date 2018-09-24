@@ -66,7 +66,7 @@ public class VendorsSelection extends Fragment {
     private void swapFragment(){
 
         FragmentTransaction fragmentTransaction =getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.lyfragment1, new VendorsFragment());
+        fragmentTransaction.replace(R.id.lfragment, new VendorsFragment());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }

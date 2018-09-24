@@ -27,8 +27,15 @@
             android:layout_width="match_parent"
             android:layout_weight=".5"
             android:layout_height="0dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
+
+            <fragment
+                android:id="@+id/fragment"
+                android:name="nti.newhorizons.newhorizons.view.fragment.courses.VendorsSelection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout="@layout/fragment_vendors_selection" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/lyfragment2"
@@ -37,6 +44,12 @@
             android:layout_height="0dp"
             android:orientation="vertical">
 
+            <fragment
+                android:id="@+id/fragment2"
+                android:name="nti.newhorizons.newhorizons.view.fragment.courses.CatogrysSelection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout="@layout/fragment_catogrys_selection" />
         </LinearLayout>
     </LinearLayout>
 
