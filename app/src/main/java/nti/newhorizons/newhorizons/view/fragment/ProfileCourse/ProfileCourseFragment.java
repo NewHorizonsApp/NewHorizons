@@ -53,7 +53,7 @@ public class ProfileCourseFragment extends android.support.v4.app.Fragment {
         {
             List<Object> childList = new ArrayList<>();
             childList.add(new CourseTitleChild("Add to contacts","Send message","odata",R.drawable.weee));
-            title.setChildObjectList(childList);  
+            title.setChildObjectList(childList);
             parentObject.add(title);
         }
         return parentObject;
