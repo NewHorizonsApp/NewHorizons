@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -22,12 +23,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 
 import nti.newhorizons.newhorizons.R;
 import nti.newhorizons.newhorizons.view.fragment.ProfileCourse.ProfileCourseFragment;
+import nti.newhorizons.newhorizons.view.fragment.ProfilePersonal.ProfileFragmentPresenter;
 import nti.newhorizons.newhorizons.view.fragment.ProfilePersonal.ProfilePersonal;
 import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
 
@@ -37,6 +41,7 @@ public class ProfileFragment extends Fragment {
 
     TextView nameT, personalT, currentT, finishT, interstedT;
     ImageView addIMG, profileIMG;
+    private ProfileFragmentPresenter profileFragmentPresenter;
 
     @Nullable
     @Override
@@ -46,7 +51,8 @@ public class ProfileFragment extends Fragment {
         init(rootView);
         presentData(rootView);
         actions();
-
+        /////
+        loadimage();
         return rootView;
     }
 
@@ -118,6 +124,29 @@ public class ProfileFragment extends Fragment {
 
     }
 
+    private void loadimage() {
+        String path;
+        profileFragmentPresenter = new ProfileFragmentPresenter();
+        path=profileFragmentPresenter.GetFromShare(this.getContext());
+        if (path.equals(null)||path.equals("")) {
+            Toast.makeText(this.getContext(), "empty path", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this.getContext(), path, Toast.LENGTH_SHORT).show();
+
+
+            Uri returnUri = Uri.parse((path));
+            Bitmap bitmapImage = null;
+
+            try {
+                bitmapImage = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), returnUri);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            profileIMG.setImageBitmap(bitmapImage);
+            profileFragmentPresenter = new ProfileFragmentPresenter();
+        }
+    }
+
 
     public void startGallery() {
         Intent cameraIntent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -146,6 +175,10 @@ public class ProfileFragment extends Fragment {
 
                     bitmapImage = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), returnUri);
                     profileIMG.setImageBitmap(bitmapImage);
+                    profileFragmentPresenter = new ProfileFragmentPresenter();
+                    //////savs image uri to sharedprefrance
+                    profileFragmentPresenter.SaveToShare(returnUri.toString(),this.getContext());
+                    /////
 
                 }
             }
