@@ -24,6 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     Button login;
     TextView signup, skip;
     LoginPresenter loginPresenter;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,6 +108,10 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (TextUtils.isEmpty(email)) {
+            emailT.setError(getString(R.string.error_field_required));
+            focusView = emailT;
+            cancel = true;
+        }else if(!email.matches( emailPattern )){
             emailT.setError(getString(R.string.error_field_required));
             focusView = emailT;
             cancel = true;
