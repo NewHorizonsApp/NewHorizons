@@ -21,6 +21,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ import java.io.IOException;
 import java.net.URI;
 
 import nti.newhorizons.newhorizons.R;
+import nti.newhorizons.newhorizons.view.activity.login.LoginActivity;
 import nti.newhorizons.newhorizons.view.fragment.ProfileCourse.ProfileCourseFragment;
 import nti.newhorizons.newhorizons.view.fragment.ProfilePersonal.ProfileFragmentPresenter;
 import nti.newhorizons.newhorizons.view.fragment.ProfilePersonal.ProfilePersonal;
@@ -40,6 +42,7 @@ public class ProfileFragment extends Fragment {
 
     TextView nameT, personalT, currentT, finishT, interstedT;
     ImageView addIMG, profileIMG;
+    Button logOut;
     private ProfileFragmentPresenter profileFragmentPresenter;
 
     @Nullable
@@ -63,6 +66,8 @@ public class ProfileFragment extends Fragment {
         personalT = view.findViewById(R.id.tv_profile_personalInfo);
         finishT = view.findViewById(R.id.tv_profile_fiinished);
         interstedT = view.findViewById(R.id.tv_profile_interested);
+
+        logOut = view.findViewById(R.id.profile_personal_log_out);
 
         profileIMG = view.findViewById(R.id.profile_image);
         addIMG = view.findViewById(R.id.profile_addIMG);
@@ -110,6 +115,13 @@ public class ProfileFragment extends Fragment {
                 } else {
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2000);
                 }
+            }
+        });
+
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
             }
         });
 

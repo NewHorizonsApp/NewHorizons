@@ -31,6 +31,7 @@ public class RetrofitClient {
 
     public static void callCourseAPI()
     {
+
         CourseAPI api = retrofit.create(CourseAPI.class);
         Call<List<Course>> call = api.getallCourses();
         call.enqueue(new Callback<List<Course>>() {

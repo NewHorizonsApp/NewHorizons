@@ -34,4 +34,5 @@
     <string name="permission_no_account">"Have Not Account</string>
     <string name="permission_new_member">Create Account</string>
     <string name="SignUp">SignUp</string>
+    <string name="Log_out">Log Out</string>
 </resources>
