@@ -1,6 +1,7 @@
 package nti.newhorizons.newhorizons.data.entities;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -42,6 +43,7 @@ public class Course implements Serializable{
         image = R.drawable.logo_app;
     }
 
+    @Ignore
     public Course(int id, String name, String code, String category, String prerequisites, String description, String outline, String include, String vendor, String level, int hours, int cost, float discount, int image) {
         this.id = id;
         this.name = name;
