@@ -20,6 +20,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText nameT, phoneT, emailT, passwordT;
     Button signup;
     Client client;
+    SignUpPresenter signUpPresenter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +36,11 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void init() {
         nameT = findViewById(R.id.et_signup_name);
-        phoneT = findViewById(R.id.et_signup_phone);  
+        phoneT = findViewById(R.id.et_signup_phone);
         emailT = findViewById(R.id.et_signup_name);
         passwordT = findViewById(R.id.et_signup_password);
         signup = findViewById(R.id.btn_signup);
+        signUpPresenter=new SignUpPresenter();
 
         client=new Client();
     }
@@ -50,9 +52,12 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                 if (checkIsUserValid()) {
-                    if (saveUser()) {
+                    client=getClient();
+                    if (signUpPresenter.saveClient(client)) {
                         Toast.makeText(SignUpActivity.this," Done ",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                        Intent intent=new Intent(SignUpActivity.this, MainActivity.class);
+                        intent.putExtra("name",client.getPerson().getName());
+                        startActivity(intent);
                     }
                 }
             }
@@ -66,16 +71,17 @@ public class SignUpActivity extends AppCompatActivity {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(nameT.getWindowToken(), 0);
 
+        String user_name = nameT.getText().toString().trim();
+        String user_phone = phoneT.getText().toString().trim();
+        String user_email = emailT.getText().toString().trim();
+        String user_password = passwordT.getText().toString().trim();
 
         nameT.setError(null);
         phoneT.setError(null);
         emailT.setError(null);
         passwordT.setError(null);
 
-        String user_name = nameT.getText().toString().trim();
-        String user_phone = phoneT.getText().toString().trim();
-        String user_email = emailT.getText().toString().trim();
-        String user_password = passwordT.getText().toString().trim();
+
 
 
         boolean cancel = false;
@@ -112,5 +118,20 @@ public class SignUpActivity extends AppCompatActivity {
         //save local data base
         //save in web service
         return true;
+    }
+
+    private Client getClient(){
+
+        String name = nameT.getText().toString().trim();
+        String phone = phoneT.getText().toString().trim();
+        String email = emailT.getText().toString().trim();
+        String password = passwordT.getText().toString().trim();
+
+        Client  client=new Client();
+        client.getPerson().setName(name);
+        client.getPerson().setPhone(phone);
+        client.getPerson().setEmail(email);
+        client.setPassword(password);
+        return client;
     }
 }
