@@ -39,7 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void init() {
         nameT = findViewById(R.id.et_signup_name);
         phoneT = findViewById(R.id.et_signup_phone);
-        emailT = findViewById(R.id.et_signup_name);
+        emailT = findViewById(R.id.et_signup_email);
         passwordT = findViewById(R.id.et_signup_password);
         signup = findViewById(R.id.btn_signup);
         signUpPresenter=new SignUpPresenter();
