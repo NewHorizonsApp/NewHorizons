@@ -17,7 +17,7 @@ public interface CourseDao {
     @Query("SELECT * FROM Course")
     LiveData<List<Course>> loadAllCourses();
 
-    @Query("SELECT * FROM Course where Course.Category like :category")
+    @Query("SELECT * FROM Course where Course.category like :category")
     LiveData<List<Course>> findCoursesByCategory(String category);
 
     @Query("SELECT * FROM Course")
