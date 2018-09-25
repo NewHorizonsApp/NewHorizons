@@ -26,18 +26,46 @@ public class TestDate {
 
     public static List<Category> getCategories() {
         List<Category> categories = new ArrayList<>();
+
+
         Category category = new Category();
-        category.setImage(R.drawable.logo);
-        category.setName("python");
+        category.setImage(R.drawable.microsoft);
+        category.setName("microsoft");
         categories.add(category);
+
 
 
         category = new Category();
-        category.setImage(R.drawable.microsoft);
-        category.setName("C#");
+        category.setImage(R.drawable.orcalee);
+        category.setName("orcale");
         categories.add(category);
 
+
+
+        category = new Category();
+        category.setImage(R.drawable.cisco);
+        category.setName("Cisco");
+        categories.add(category);
+
+
+
+        category = new Category();
+        category.setImage(R.drawable.autodisc);
+        category.setName("autodisc");
+        categories.add(category);
+
+
+
+        category = new Category();
+        category.setImage(R.drawable.comptia);
+        category.setName("comptia");
+        categories.add(category);
+
+
+
+
         return categories;
+
 
     }
 }

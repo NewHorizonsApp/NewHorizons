@@ -33,7 +33,6 @@ import nti.newhorizons.newhorizons.R;
 import nti.newhorizons.newhorizons.view.fragment.ProfileCourse.ProfileCourseFragment;
 import nti.newhorizons.newhorizons.view.fragment.ProfilePersonal.ProfileFragmentPresenter;
 import nti.newhorizons.newhorizons.view.fragment.ProfilePersonal.ProfilePersonal;
-import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
 
 
 public class ProfileFragment extends Fragment {
@@ -52,7 +51,7 @@ public class ProfileFragment extends Fragment {
         presentData(rootView);
         actions();
         /////
-        loadimage();
+      // loadimage();
         return rootView;
     }
 

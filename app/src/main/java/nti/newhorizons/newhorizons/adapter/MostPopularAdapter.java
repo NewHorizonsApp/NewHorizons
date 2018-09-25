@@ -30,7 +30,7 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.home_course_item, parent, false);
+        View view = mInflater.inflate(R.layout.course_list_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -41,7 +41,7 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
         String cost = String.valueOf(courses.get(i).getCost());
         holder.tvCourseCost.setText(cost);
         holder.ivCourseImage.setImageResource(courses.get(i).getImage());
-        holder.tvCourseCategory.setText(courses.get(i).getCategory());
+        holder.tvCourseHours.setText(courses.get(i).getHours()+"");
     }
 
     // total number of rows
@@ -55,6 +55,7 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvCourseName;
         TextView tvCourseCost;
+        TextView tvCourseHours;
         TextView tvCourseCategory;
         ImageView ivCourseImage;
         private  Context context;
@@ -62,13 +63,14 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
 
         ViewHolder(View itemView) {
             super(itemView);
-            tvCourseName = itemView.findViewById(R.id.tv_home_course_name);
-            tvCourseCost = itemView.findViewById(R.id.tv_home_course_cost);
-            tvCourseCategory = itemView.findViewById(R.id.tv_home_course_category);
-            ivCourseImage = itemView.findViewById(R.id.iv_home_course_image);
+            tvCourseName = itemView.findViewById(R.id.tv_course_list_name);
+            tvCourseCost = itemView.findViewById(R.id.tv_list_course_cost);
+            tvCourseHours = itemView.findViewById(R.id.tv_list_course_hours);
+           // tvCourseCategory = itemView.findViewById(R.id.tv);
+            ivCourseImage = itemView.findViewById(R.id.iv_course_list_icon);
             context =itemView.getContext();
             itemView.setOnClickListener(this);
-        }  
+        }
 
         @Override
         public void onClick(View view) {
