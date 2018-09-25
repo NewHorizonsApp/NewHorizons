@@ -10,7 +10,7 @@ import nti.newhorizons.newhorizons.data.entities.Course;
 import nti.newhorizons.newhorizons.data.local.room.dao.CategoryDao;
 import nti.newhorizons.newhorizons.data.local.room.dao.CourseDao;
 
-@Database(entities = {Course.class, Category.class}, version = 1)
+@Database(entities = {Course.class, Category.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
 
