@@ -21,6 +21,8 @@ public class SignUpActivity extends AppCompatActivity {
     Button signup;
     Client client;
     SignUpPresenter signUpPresenter;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,7 +98,16 @@ public class SignUpActivity extends AppCompatActivity {
             emailT.setError(getString(R.string.error_field_required));
             focusView = emailT;
             cancel = true;
-        } if (TextUtils.isEmpty(user_name)) {
+        }else
+        {
+            if(!user_email.matches(emailPattern))
+            {
+                emailT.setError(getString(R.string.error_field_required));
+                focusView = emailT;
+                cancel = true;
+            }
+        }
+            if (TextUtils.isEmpty(user_name)) {
             nameT.setError(getString(R.string.error_field_required));
             focusView = nameT;
             cancel = true;
