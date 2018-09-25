@@ -15,12 +15,12 @@ public class CategoryAdapter extends BaseAdapter {
 
     // Keep all Images in array
     public Integer[] mThumbIds = {
-            R.drawable.microsoft, R.drawable.microsoft,
-            R.drawable.microsoft, R.drawable.microsoft,
-            R.drawable.microsoft, R.drawable.microsoft,
-            R.drawable.microsoft, R.drawable.microsoft,
-            R.drawable.microsoft, R.drawable.microsoft,
-            R.drawable.microsoft, R.drawable.microsoft,
+            R.drawable.web_development, R.drawable.android,
+            R.drawable.database, R.drawable.csharp,
+            R.drawable.english, R.drawable.business,
+            R.drawable.web_development, R.drawable.android,
+            R.drawable.csharp, R.drawable.business,
+            R.drawable.english, R.drawable.microsoft,
             R.drawable.microsoft, R.drawable.microsoft,
             R.drawable.microsoft,R.drawable.microsoft
     };
@@ -50,7 +50,7 @@ public class CategoryAdapter extends BaseAdapter {
         ImageView imageView = new ImageView(mContext);
         imageView.setImageResource(mThumbIds[position]);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setLayoutParams(new GridView.LayoutParams(70, 70));
+        imageView.setLayoutParams(new GridView.LayoutParams(280, 220));
         return imageView;
     }
 }

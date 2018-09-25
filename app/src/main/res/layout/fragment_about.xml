@@ -1,63 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:weightSum="17">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:src="@drawable/logo"
-        android:layout_weight="3"
-        />
-
-    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:autoSizeTextType="uniform"
-        android:gravity="center"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:justificationMode="inter_word"
-        android:text="@string/About_company"
-        android:textStyle="bold"
-        tools:paddingLeft="8dp" />
+        android:layout_height="5dp"
+        android:layout_weight="4"
+        android:src="@drawable/logo" />
 
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_weight="0.5"
+        android:orientation="horizontal">
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight=".5"
+            app:cardBackgroundColor="#eaeaea"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:justificationMode="inter_word"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:text="@string/About_company"
+                android:textStyle="bold"
+                tools:paddingLeft="8dp" />
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
 
     <!---->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_weight="8"
+        android:layout_height="100dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="9"
         android:orientation="vertical"
-        android:weightSum="2">
+        android:weightSum="2"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="10dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
                 android:layout_weight=".5"
                 app:cardBackgroundColor="#eaeaea"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-
-                >
+                app:cardElevation="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:weightSum="6">
+                    android:weightSum="6"
+
+                    >
 
                     <ImageView
                         android:id="@+id/iv_abbas"
@@ -65,7 +91,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="4"
                         android:gravity="center"
-                        android:src="@drawable/course_dummy" />
+                        android:src="@drawable/locations" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -76,9 +102,10 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="2dp"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:paddingBottom="2dp"
                         android:text="@string/abbas_num" />
 
                 </LinearLayout>
@@ -87,13 +114,12 @@
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
                 android:layout_weight=".5"
                 app:cardBackgroundColor="#eaeaea"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-
-                >
+                app:cardElevation="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -107,7 +133,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="4"
                         android:gravity="center"
-                        android:src="@drawable/course_dummy" />
+                        android:src="@drawable/locations" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -118,9 +144,10 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="2dp"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:paddingBottom="2dp"
                         android:text="@string/makram_num" />
 
                 </LinearLayout>
@@ -130,22 +157,22 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
                 android:layout_weight=".5"
                 app:cardBackgroundColor="#eaeaea"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-
-                >
+                app:cardElevation="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -159,7 +186,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="4"
                         android:gravity="center"
-                        android:src="@drawable/course_dummy" />
+                        android:src="@drawable/locations" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -170,9 +197,10 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="2dp"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:paddingBottom="2dp"
                         android:text="@string/mobtadian_num" />
 
                 </LinearLayout>
@@ -181,13 +209,12 @@
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
                 android:layout_weight=".5"
                 app:cardBackgroundColor="#eaeaea"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-
-                >
+                app:cardElevation="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -201,7 +228,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="4"
                         android:gravity="center"
-                        android:src="@drawable/course_dummy" />
+                        android:src="@drawable/locations" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -212,9 +239,10 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="2dp"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:paddingBottom="2dp"
                         android:text="@string/october_num" />
 
                 </LinearLayout>
@@ -229,24 +257,16 @@
     <!---->
 
 
-
     <!---->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_horizontal_margin"
-        android:orientation="horizontal"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:text="Social"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
 
         <ImageView
             android:id="@+id/iv_fb"
@@ -261,12 +281,14 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:src="@drawable/linkedin" />
+
         <ImageView
             android:id="@+id/iv_youtube"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:src="@drawable/youtube" />
+
         <ImageView
             android:id="@+id/iv_twitter"
             android:layout_width="wrap_content"
@@ -279,8 +301,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:src="@drawable/web"
-            />
+            android:src="@drawable/web" />
     </LinearLayout>
 
 

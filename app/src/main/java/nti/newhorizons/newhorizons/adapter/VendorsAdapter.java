@@ -17,11 +17,11 @@ public class VendorsAdapter extends BaseAdapter{
 
     // Keep all Images in array
     public Integer[] mThumbIds = {
-            R.drawable.microsoft, R.drawable.microsoft,
-            R.drawable.microsoft, R.drawable.microsoft,
-            R.drawable.microsoft, R.drawable.microsoft,
-            R.drawable.microsoft, R.drawable.microsoft,
-            R.drawable.microsoft, R.drawable.microsoft,
+            R.drawable.microsoft, R.drawable.oracle,
+           // R.drawable.cisco, R.drawable.pmi,
+           // R.drawable.itil, R.drawable.comptia,
+            R.drawable.microsoft, R.drawable.axelos,
+            R.drawable.axelos, R.drawable.microsoft,
             R.drawable.microsoft, R.drawable.microsoft,
             R.drawable.microsoft, R.drawable.microsoft,
             R.drawable.microsoft,R.drawable.microsoft
@@ -54,7 +54,7 @@ public class VendorsAdapter extends BaseAdapter{
         ImageView imageView = new ImageView(mContext);
         imageView.setImageResource(mThumbIds[position]);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setLayoutParams(new GridView.LayoutParams(70, 70));
+        imageView.setLayoutParams(new GridView.LayoutParams(240, 220));
         return imageView ;
     }
 }

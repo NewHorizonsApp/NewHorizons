@@ -30,7 +30,7 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.course_list_item, parent, false);
+        View view = mInflater.inflate(R.layout.home_course_item, parent, false);
         return new ViewHolder(view);
     }
 
