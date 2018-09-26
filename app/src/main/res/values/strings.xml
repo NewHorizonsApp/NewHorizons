@@ -32,7 +32,7 @@
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email</string>
     <string name="permission_no_account">"Have Not Account</string>
-    <string name="permission_new_member">Not registered? Create Account</string>
+    <string name="permission_new_member">Create Account</string>
     <string name="SignUp">SignUp</string>
     <string name="Log_out">Log Out</string>
     <string name="RetypPassword">Re-typePassword</string>
