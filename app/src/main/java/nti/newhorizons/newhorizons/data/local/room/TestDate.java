@@ -11,15 +11,18 @@ public class TestDate {
 
     public static List<Course> getCourses() {
         List<Course> courses = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            Course course = new Course();
-            course.setId(i);
-            course.setName("name"+i);
-            course.setCategory("C#");
-            courses.add(course);
-        }
+//        for (int i = 0; i < 10; i++) {
+//            Course course = new Course();
+//            course.setId(i);
+//            course.setName("name"+i);
+//            course.setCategory("C#");
+//            courses.add(course);
+//        }
+        Course course=new Course(0,"The Complete python","D001","Development","Indroduction To Computer Slide","Becaome python Progarammer and learn one of employers most request skills 2018","installing python,Running python code,Strings,Lists,Dictonieries,Tuples,Modules","course introduction,Course Curriculm Over view,Course FAG","Microsoft","Bigginer",24,50,30,R.drawable.microsoft);
+        Course course2=new Course(1,"The Complete python","D001","Development","Indroduction To Computer Slide","Becaome python Progarammer and learn one of employers most request skills 2018","installing python,Running python code,Strings,Lists,Dictonieries,Tuples,Modules","course introduction,Course Curriculm Over view,Course FAG","Microsoft","Bigginer",24,50,30,R.drawable.microsoft);
 
-
+        courses.add(course);
+        courses.add(course2);
 
         return courses;
     }

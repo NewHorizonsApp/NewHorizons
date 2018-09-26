@@ -1,35 +1,18 @@
 package nti.newhorizons.newhorizons.data.entities;
 
-public class Client {
+import java.io.Serializable;
 
-    private int id;
+public class Client extends Person implements Serializable{
+
     private String password;
     private String type;
-    private Person person=new Person();
-
-    public Client(String s, String fred) {
-        this.setPassword(fred);
-        this.getPerson().setEmail(s);
-    }
 
     public Client() {
+        super();
+        password="1234";
+        type="Individual";
     }
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getPassword() {
         return password;

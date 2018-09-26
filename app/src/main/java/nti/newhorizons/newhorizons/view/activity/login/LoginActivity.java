@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     LoginPresenter loginPresenter;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-    Client testClient = new Client("fred@gmail.com", "fred");
+    Client testClient = new Client();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
             }
         });
         skip.setOnClickListener(new View.OnClickListener() {
@@ -74,9 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     Client user = loginPresenter.checkUser(login_email, login_password);
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.putExtra("email", testClient.getPerson().getEmail());
-                    intent.putExtra("password", testClient.getPassword());
-
+                    intent.putExtra("Client", user);
                     startActivity(intent);
                 } else
                     Toast.makeText(LoginActivity.this, "login failed", Toast.LENGTH_SHORT).show();

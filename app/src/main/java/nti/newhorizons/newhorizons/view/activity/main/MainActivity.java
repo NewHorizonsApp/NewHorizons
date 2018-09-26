@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import nti.newhorizons.newhorizons.R;
+import nti.newhorizons.newhorizons.view.activity.login.LoginActivity;
 import nti.newhorizons.newhorizons.view.fragment.about.AboutFragment;
 import nti.newhorizons.newhorizons.view.fragment.courses.CoursesFragment;
 import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
@@ -30,25 +31,12 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_main);
 
 
         init();
         presentData();
         actions();
-        notUser();
-
-    }
-
-    private void notUser() {
-        Intent intent = getIntent();
-
-        if (!intent.hasExtra("email") && !intent.hasExtra("password")) {
-            bottomNavigationView.getMenu().removeItem(R.id.navigation_profile);
-            Toast.makeText(getBaseContext(), "مش زفت " ,Toast.LENGTH_SHORT).show();
-
-        }
     }
 
     private void actions() {
@@ -64,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.navigation_profile:
                         replaceFragment(new ProfileFragment());
+                        return true;
+                    case R.id.navigation_signIn:
+                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
                         return true;
                     case R.id.navigation_about:
                         replaceFragment(new AboutFragment());
@@ -81,11 +72,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void presentData() {
+        presenter.removeOneOfNavigationBottom();
     }
 
     private void init() {
         bottomNavigationView = findViewById(R.id.navigation);
         replaceFragment(new HomeFragment());
+        presenter = new MainPresenter(this);
 
     }
 

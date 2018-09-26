@@ -1,13 +1,19 @@
 package nti.newhorizons.newhorizons.data.entities;
 
-public class Person {
-    private int id;
-    private String name;
-    private String phone;
-    private String email;
+import java.io.Serializable;
+
+public class Person  implements Serializable {
+    protected int id;
+    protected String name;
+    protected String phone;
+    protected String email;
 
 
     public Person() {
+        id=0;
+        name="default";
+        phone="0000";
+        email="default@gmail.com";
 
     }
 

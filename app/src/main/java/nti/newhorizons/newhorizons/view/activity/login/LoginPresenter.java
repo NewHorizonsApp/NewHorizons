@@ -24,7 +24,7 @@ public class LoginPresenter {
     public Client checkUser(String email, String password) {
         Client user = new Client();
 
-        user.getPerson().setEmail(email);
+        user.setEmail(email);
         user.setPassword(password);
 
 
