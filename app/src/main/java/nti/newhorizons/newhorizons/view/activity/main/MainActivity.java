@@ -14,7 +14,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import nti.newhorizons.newhorizons.R;
-import nti.newhorizons.newhorizons.view.fragment.about.AboutFragment; 
+import nti.newhorizons.newhorizons.view.fragment.about.AboutFragment;
 import nti.newhorizons.newhorizons.view.fragment.courses.CoursesFragment;
 import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
 import nti.newhorizons.newhorizons.view.fragment.profile.ProfileFragment;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private void notUser() {
         Intent intent = getIntent();
 
-        if (!intent.hasExtra("email") || !intent.hasExtra("password")) {
+        if (!intent.hasExtra("email") && !intent.hasExtra("password")) {
             bottomNavigationView.getMenu().removeItem(R.id.navigation_profile);
             Toast.makeText(getBaseContext(), "مش زفت " ,Toast.LENGTH_SHORT).show();
 
