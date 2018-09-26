@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class CourseListAdapter  extends ArrayAdapter<Course> {
 
-    TextView tvCourseName,tvCoursCost;
+    TextView tvCourseName, tvCoursDesc;
     ImageView ivCourseImg, ivAddToList;
     private final ArrayList<Course> courses;
     private final Context context;
@@ -39,12 +39,13 @@ public class CourseListAdapter  extends ArrayAdapter<Course> {
         LayoutInflater inflater= (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view=inflater.inflate(R.layout.course_list_item,parent,false);
         tvCourseName=(TextView) view.findViewById(R.id.tv_course_list_name);
-        tvCoursCost=(TextView)view.findViewById(R.id.tv_list_course_cost);
+        tvCoursDesc =(TextView)view.findViewById(R.id.tv_list_course_des);
         ivCourseImg=(ImageView)view.findViewById(R.id.iv_course_list_icon) ;
         ivAddToList=(ImageView)view.findViewById(R.id.iv_add_toList) ;
 
         tvCourseName.setText(courses.get(position).getName());
-        tvCoursCost.setText(courses.get(position).getCost()+"");
+        tvCoursDesc.setText(courses.get(position).getDescription());
+        ivCourseImg.setImageResource(courses.get(position).getImage());
         ivAddToList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
