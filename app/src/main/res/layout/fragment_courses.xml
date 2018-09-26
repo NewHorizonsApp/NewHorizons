@@ -65,7 +65,7 @@
                 android:id="@+id/fragment2"
                 android:name="nti.newhorizons.newhorizons.view.fragment.courses.CatogrysSelection"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 tools:layout="@layout/fragment_catogrys_selection" />
         </LinearLayout>
     </LinearLayout>
