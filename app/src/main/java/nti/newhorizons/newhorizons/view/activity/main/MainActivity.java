@@ -14,7 +14,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import nti.newhorizons.newhorizons.R;
-import nti.newhorizons.newhorizons.view.fragment.about.AboutFragment;
+import nti.newhorizons.newhorizons.view.fragment.about.AboutFragment; 
 import nti.newhorizons.newhorizons.view.fragment.courses.CoursesFragment;
 import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
 import nti.newhorizons.newhorizons.view.fragment.profile.ProfileFragment;
