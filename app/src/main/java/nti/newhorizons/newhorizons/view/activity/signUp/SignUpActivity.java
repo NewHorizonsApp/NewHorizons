@@ -59,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                 //save client in dataBase
                 if (!presenter.saveClient(presenter.getClient())) {
-                    Toast.makeText(SignUpActivity.this, "User Not Saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Client Not Saved in DB", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
