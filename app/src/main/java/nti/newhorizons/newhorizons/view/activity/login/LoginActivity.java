@@ -34,15 +34,13 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-
         setContentView(R.layout.activity_login);
-
         init();
         actions();
-
     }
 
     private void init() {
+
         emailT = findViewById(R.id.et_login_email);
         passwordT = findViewById(R.id.et_login_password);
         signup = findViewById(R.id.et_signup);
@@ -56,13 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-
-                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
-                intent.putExtra("email", testClient.getPerson().getEmail());
-                intent.putExtra("password", testClient.getPassword());
-
-                startActivity(intent);
-
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
         });
         skip.setOnClickListener(new View.OnClickListener() {
@@ -73,23 +65,24 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String login_email = emailT.getText().toString().trim();
                 String login_password = passwordT.getText().toString().trim();
                 if (checkIsUserValid()) {
-                    Client user = loginPresenter.checkUser(login_email, login_password);
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
+                    Client user = loginPresenter.checkUser(login_email, login_password);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("email", testClient.getPerson().getEmail());
+                    intent.putExtra("password", testClient.getPassword());
+
+                    startActivity(intent);
                 } else
                     Toast.makeText(LoginActivity.this, "login failed", Toast.LENGTH_SHORT).show();
 
-
             }
         });
-
     }
 
     private boolean checkIsUserValid() {
