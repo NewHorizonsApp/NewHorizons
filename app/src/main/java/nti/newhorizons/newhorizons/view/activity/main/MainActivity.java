@@ -11,9 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import nti.newhorizons.newhorizons.R;
-import nti.newhorizons.newhorizons.view.activity.courseDetails.courseDetails;
 import nti.newhorizons.newhorizons.view.fragment.about.AboutFragment;
 import nti.newhorizons.newhorizons.view.fragment.courses.CoursesFragment;
 import nti.newhorizons.newhorizons.view.fragment.home.HomeFragment;
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
@@ -32,12 +33,23 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+
         init();
         presentData();
         actions();
+        notUser();
 
     }
 
+    private void notUser() {
+        Intent intent = getIntent();
+
+        if (!intent.hasExtra("email") || !intent.hasExtra("password")) {
+            bottomNavigationView.getMenu().removeItem(R.id.navigation_profile);
+            Toast.makeText(getBaseContext(), "مش زفت " ,Toast.LENGTH_SHORT).show();
+
+        }
+    }
 
     private void actions() {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

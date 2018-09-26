@@ -17,4 +17,5 @@ public interface CourseAPI {
 
     @GET("/course")
     Call<List<Course>> getCoursesById(@Query("id") String categoryid);
+
 }

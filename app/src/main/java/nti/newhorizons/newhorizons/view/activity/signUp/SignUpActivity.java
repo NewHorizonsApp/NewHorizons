@@ -23,7 +23,6 @@ public class SignUpActivity extends AppCompatActivity {
     SignUpPresenter signUpPresenter;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);

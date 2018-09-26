@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     LoginPresenter loginPresenter;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
+    Client testClient = new Client("fred@gmail.com", "fred");
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,12 @@ public class LoginActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
+
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                intent.putExtra("email", testClient.getPerson().getEmail());
+                intent.putExtra("password", testClient.getPassword());
+
+                startActivity(intent);
 
             }
         });
@@ -111,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
             emailT.setError(getString(R.string.error_field_required));
             focusView = emailT;
             cancel = true;
-        }else if(!email.matches( emailPattern )){
+        } else if (!email.matches(emailPattern)) {
             emailT.setError(getString(R.string.error_field_required));
             focusView = emailT;
             cancel = true;

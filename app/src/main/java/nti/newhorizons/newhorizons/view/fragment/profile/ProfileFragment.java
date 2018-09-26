@@ -118,12 +118,12 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
-            }
-        });
+//        logOut.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
+//            }
+//        });
 
 
     }

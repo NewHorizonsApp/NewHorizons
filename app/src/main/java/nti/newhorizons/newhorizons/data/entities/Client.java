@@ -7,6 +7,14 @@ public class Client {
     private String type;
     private Person person=new Person();
 
+    public Client(String s, String fred) {
+        this.setPassword(fred);
+        this.getPerson().setEmail(s);
+    }
+
+    public Client() {
+    }
+
     public Person getPerson() {
         return person;
     }
